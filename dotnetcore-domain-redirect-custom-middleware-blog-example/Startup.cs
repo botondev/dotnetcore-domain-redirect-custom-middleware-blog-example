@@ -1,4 +1,5 @@
 using dotnetcore_domain_redirect_custom_middleware_blog_example.Configuration;
+using dotnetcore_domain_redirect_custom_middleware_blog_example.CustomMiddleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -48,6 +49,7 @@ namespace dotnetcore_domain_redirect_custom_middleware_blog_example
             }
 
             app.UseHttpsRedirection();
+            app.UseDomainRedirectMiddleware();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 
