@@ -1,3 +1,4 @@
+using dotnetcore_domain_redirect_custom_middleware_blog_example.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +29,8 @@ namespace dotnetcore_domain_redirect_custom_middleware_blog_example
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            services.Configure<RedirectToPublicDomainConfiguration>(Configuration.GetSection("RedirectToPublicDomainConfiguration"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
