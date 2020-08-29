@@ -1,11 +1,7 @@
 ﻿using dotnetcore_domain_redirect_custom_middleware_blog_example.Configuration;
 using Microsoft.ApplicationInsights.AspNetCore.Extensions;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace dotnetcore_domain_redirect_custom_middleware_blog_example.CustomMiddleware
@@ -13,10 +9,9 @@ namespace dotnetcore_domain_redirect_custom_middleware_blog_example.CustomMiddle
     public class DomainRedirectMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly ILogger<DomainRedirectMiddleware> _logger;
         private readonly IOptions<RedirectToPublicDomainConfiguration> _configuration;
 
-        public DomainRedirectMiddleware(RequestDelegate next, IOptions<RedirectToPublicDomainConfiguration> configuration, ILogger<DomainRedirectMiddleware> logger)
+        public DomainRedirectMiddleware(RequestDelegate next, IOptions<RedirectToPublicDomainConfiguration> configuration)
         {
             _next = next;
             _configuration = configuration;
